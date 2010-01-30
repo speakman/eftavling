@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+    Välkommen, <strong>{{ user.username }}</strong>!
+</p>
+<p>
+    Enligt röstlängden så har du redan avlagt din röst.
+    Önskar du ändra din lagda röst så ange den
+    röstningskod du erhöll vid röstningen på framsidan.
+</p>
+<p>
+    <a href="{% url home %}">&laquo; Tillbaka till förstasidan</a>
+</p>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+    Vänligen bekräfta att din röst ser ut som följer:
+</p>
+<table>
+    {% for entry in votes %}
+    <tr>
+	<th>
+	    {{ forloop.counter }}
+	</th>
+	<td>
+	    - <strong>{{ entry.title }}</strong> av <strong>{{ entry.author }}</strong>
+	</td>
+    </tr>
+    {% endfor %}
+</table>
+<form id="confirmform" method="post" action="{% url confirm %}">
+    <p>
+	<input type="hidden" name="confirm" value="true" />
+	<input type="submit" value="Jag bekräftar min röst ovan" /> -
+	<a href="{% url vote %}">Avbryt och backa till röstningen</a>
+    </p>
+</form>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+	<strong>Välkommen till röstningen för elektroniktävlingen!</strong>
+</p>
+<p>
+    Var vänlig logga in för att lägga din röst. Du använder
+    samma användaruppgifter som på forumet.
+</p>
+<form method="post" action="{% url django.contrib.auth.views.login %}">
+    <table>
+	{{ form }}
+	<tr>
+	    <td></td>
+	    <td>
+		<input type="submit" value="Login" />
+	    </td>
+	</tr>
+    </table>
+</form>
+<p>
+    Har du redan avlagt din röst men vill ändra den så fyller du i
+    din erhållna röstningskod nedan.
+</p>
+<form method="post" action="{% url vote %}">
+    <table>
+	<tr>
+	    <th>
+		Röstningskod:
+	    </th>
+	    <td>
+		<input type="text" name="votecode" />
+	    </td>
+	</tr>
+	<tr>
+	    <td></td>
+	    <td>
+		<input type="submit" value="Ändra" />
+	    </td>
+	</tr>
+    </table>
+</form>
+
+<div style="clear: both;" />
+<hr />
+<p style="float: right;">
+    <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" "Made with Django." title="Made with Django." /></a>
+    &nbsp;
+    <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+</p>
+{% endblock %}

@@ -1,0 +1,62 @@
+[
+    {
+        "pk": 1, 
+        "model": "efvote.entry", 
+        "fields": {
+            "url": "http://elektronikforumet.com/forum/viewtopic.php?f=33&t=39893", 
+            "author": "Tripp", 
+            "author_url": "http://elektronikforumet.com/forum/memberlist.php?mode=viewprofile&u=375", 
+            "title": "Energilogger f\u00f6r USB"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "efvote.entry", 
+        "fields": {
+            "url": "http://elektronikforumet.com/forum/viewtopic.php?f=33&t=39974", 
+            "author": "Glenn", 
+            "author_url": "http://elektronikforumet.com/forum/memberlist.php?mode=viewprofile&u=2107", 
+            "title": "L\u00f6dtimer"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "efvote.entry", 
+        "fields": {
+            "url": "http://elektronikforumet.com/forum/viewtopic.php?f=33&t=39978", 
+            "author": "Micke_s", 
+            "author_url": "http://elektronikforumet.com/forum/memberlist.php?mode=viewprofile&u=1807", 
+            "title": "Logikanalysator"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "efvote.entry", 
+        "fields": {
+            "url": "http://elektronikforumet.com/forum/viewtopic.php?f=33&t=39963", 
+            "author": "victor_passe", 
+            "author_url": "http://elektronikforumet.com/forum/memberlist.php?mode=viewprofile&u=3062", 
+            "title": "\u00b5Scope V1.1"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "efvote.entry", 
+        "fields": {
+            "url": "http://elektronikforumet.com/forum/viewtopic.php?f=33&t=39960", 
+            "author": "jyrgen", 
+            "author_url": "http://elektronikforumet.com/forum/memberlist.php?mode=viewprofile&u=2510", 
+            "title": "TV dosa v1.1"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "efvote.entry", 
+        "fields": {
+            "url": "http://elektronikforumet.com/forum/viewtopic.php?f=33&t=39887", 
+            "author": "AntiZ", 
+            "author_url": "http://elektronikforumet.com/forum/memberlist.php?mode=viewprofile&u=3150", 
+            "title": "Gitarrackordsgenerator"
+        }
+    }
+]

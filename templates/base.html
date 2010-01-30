@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+	<title>Svenska Elektronikforumet.com - Tävling</title>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" type="text/css" />
+	<script src="http://www.google.com/jsapi?key=ABQIAAAAt3Q7odpwl5ZQl6nfwU5evhQCULP4XOMyhPd8d_NrQQEO8sT8XBRVFr_v01W69mPtHzs8H6qlHaaIew"
+		type="text/javascript">
+	</script>
+	<script type="text/javascript">
+	    //<![CDATA[   
+	    google.load("jquery", "1.4.0");
+	    google.load("jqueryui", "1.7.2");
+	    //]]>
+	</script>
+	{% block extra_head %}{% endblock %}
+    </head>
+    <body>
+	<div id="header">
+	</div>
+	<div id="container-wrapper">
+	    <div id="container">
+		<h3>
+		    Svenska Elektronikforumets konstruktionstävling 
+		    2009-2010
+		</h3>
+		{% block content %}{% endblock %}
+	    </div>
+	</div>
+    </body>
+</html>

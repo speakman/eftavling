@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h5>{{ title }}</h4>
+<p>
+    {{ message|safe }}
+</p>
+<p>
+    <a href="{% url home %}">&laquo; Tillbaka till förstasidan</a>
+</p>
+{% endblock %}

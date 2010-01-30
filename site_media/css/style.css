@@ -1,0 +1,97 @@
+body {
+    color: #323D4F;
+    font-family: "Lucida Grande",Verdana,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    margin: 0;
+}
+
+#header {
+    height: 83px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+    background-image: url(http://elektronikforumet.com/forum/images/el_logo_cut.gif);
+    background-repeat: no-repeat;
+    background-color: #70839D;
+    background-position: 2px 2px;
+    border-bottom: 2px solid #1E375A;
+}
+
+#container-wrapper { text-align: center; }
+#container {
+    text-align: left;
+    width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+img { border: 0; }
+
+h1 { font-size: 14pt; }
+h2 { font-size: 12pt; }
+h3 { font-size: 11pt; }
+h4 { font-size: 10pt; }
+
+h1, h2, h3, h4 {
+    border: 1px solid silver;
+    margin: 10px 0px;
+    padding: 5px;
+    background-color: #F1F1F1;
+}
+
+#container > p {
+    margin: 20px 40px;
+}
+
+#entries-wrapper {
+    float: left;
+    margin-bottom: 20px;
+}
+
+#choices-wrapper {
+    float: right;
+    margin-bottom: 20px;
+}
+
+#entries, #choices {
+    margin: 0; 
+    padding: 0; 
+    float: left; 
+    background: #F1F1F1; 
+    padding: 5px; 
+    width: 260px;
+}
+
+#entries { height: 230px; }
+#choices { height: 115px; }
+
+#entries li, #choices li {
+    font-size: 11px;
+    width: 230px;
+    background-color: #FAFAFA;
+    border: 1px solid gray;
+    z-index: 9999;
+    margin: 10px;
+    padding: 5px;
+    cursor: move;
+}
+
+li .title, li .author, ol .title, ol .author {
+    font-weight: bold;
+}
+
+.handle { color: silver; }
+
+#next-step {
+    float: right;
+    margin: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul.errorlist li {
+    font-weight: bold;
+    color: red;
+}

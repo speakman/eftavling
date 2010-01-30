@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+    <strong>Tack för din medverkan!</strong>
+</p>
+<p>
+    {% if votecode %}
+    Dina ändringar har mottagits.
+    {% else %}
+    För att du under röstningstiden ska kunna ändra din
+    röst så erhålls du här en röstningskod som du bör
+    anteckna på ett säkert ställe. Den visas bara en enda
+    gång här och den kan inte återställas på något vis,
+    så se till att ha den antecknad innan du lämnar sidan.
+</p>
+<p>
+    Röstningskod: <strong>{{ hash }}</strong>
+    {% endif %}
+</p>
+{% endblock %}

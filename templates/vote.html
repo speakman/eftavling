@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script src="{{ MEDIA_URL }}js/vote.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+<p>
+    {% if user.is_authenticated %}
+    Välkommen, <strong>{{ user.username }}</strong>!
+    {% else %}
+    Välkommen tillbaka!
+    {% endif %}
+</p>
+<p>
+    Du röstar genom att flytta tre av de tävlande bidragen
+    på vänster sida till den högra kolumnen med det bästa
+    bidraget överst, ditt andrahandsval under det och sist
+    lägger du ditt tredjehandsval.
+</p>
+<p>
+    <strong>Varsågod!</strong> Använd dra-och-släpp för att göra
+    dina val.
+</p>
+<div id="entries-wrapper">
+    <h4>Tävlingsbidrag:</h4>
+    <ul id="entries">
+	{% for entry in entries %}
+	<li class="ui-state-default" id="e_{{ entry.id }}">
+	    <span class="handle">&equiv;&equiv;</span>
+	    <span class="title">
+		<a href="{{ entry.url }}" rel="external">
+		    {{ entry.title }}
+		</a>
+	    </span>
+	    av
+	    <span class="author">
+		<a href="{{ entry.author_url }}" rel="external">
+		    {{ entry.author }}
+		</a>
+	    </span>
+	</li>
+	{% endfor %}
+    </ul>
+</div>
+<div id="choices-wrapper">
+    <h4>Dina röster:</h4>
+    <ul id="choices">
+	{% for entry in voted %}
+	<li class="ui-state-default" id="e_{{ entry.id }}">
+	    <span class="handle">&equiv;&equiv;</span>
+	    <span class="title">
+		<a href="{{ entry.url }}" rel="external">
+		    {{ entry.title }}
+		</a>
+	    </span>
+	    av
+	    <span class="author">
+		<a href="{{ entry.author_url }}" rel="external">
+		    {{ entry.author }}
+		</a>
+	    </span>
+	</li>
+	{% empty %}
+	<li class="dummy"></li>
+	{% endfor %}
+    </ul>
+</div>
+<div style="clear: both;" />
+<div id="next-step">
+    <form id="voteform" method="post" action="">
+	<input type="hidden" name="votes" />
+    </form>
+    <button type="button" id="next">Jag är nöjd och vill gå vidare &raquo;</button>
+</div>
+{% endblock %}
