@@ -53,7 +53,7 @@ def vote(request):
         try:
             bbuser = PhpbbUser.objects.get(username=request.user.username)
             if bbuser.user_regdate() >= \
-                    datetime.datetime.strptime(settings.EFVOTE_REG_LIMIT, 
+                    datetime.strptime(settings.EFVOTE_REG_LIMIT, 
                                                '%Y-%m-%d'):
                 return direct_to_template(request, 'message.html', {
                         'title': 'Tyvärr...',
