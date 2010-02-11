@@ -93,3 +93,14 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/vote/'
+
+EFVOTE_START = '2010-02-10'
+EFVOTE_START_TITLE = "Tävlingen har inte startat"
+EFVOTE_START_MESSAGE = "Tävlingen startar %s. Välkommen åter." % EFVOTE_START
+
+EFVOTE_END = '2010-02-11'
+EFVOTE_END_TITLE = "Tävlingen över för denna gång"
+EFVOTE_END_MESSAGE = "Tävlingen avslutades %s och är därmed över " \
+    "för denna gång. Tack för din medverkan." % EFVOTE_END
+
+EFVOTE_REG_LIMIT = '2009-10-21'

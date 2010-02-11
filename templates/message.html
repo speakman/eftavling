@@ -5,7 +5,9 @@
 <p>
     {{ message|safe }}
 </p>
+{% if not noback %}
 <p>
     <a href="{% url home %}">&laquo; Tillbaka till förstasidan</a>
 </p>
+{% endif %}
 {% endblock %}

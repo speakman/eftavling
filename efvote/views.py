@@ -4,14 +4,13 @@ from django.views.generic.simple import direct_to_template, redirect_to
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse
+from django.conf import settings
 from models import Entry, Voter, Vote, Voting
 from django_phpbb.models import PhpbbUser
 from random import shuffle
+from datetime import datetime
 import re
 import logging
-import datetime
-
-REGISTERED_LIMIT = datetime.datetime(2010, 1, 1)
 
 def vote(request):
     voted = []
@@ -49,16 +48,18 @@ def vote(request):
 
     assert len(voted) == 3 or request.user.is_authenticated()
 
-    # Users not registered at REGISTERED_LIMIT are not allowed to vote
+    # Users registered after contest announcement are not allowed to vote
     if request.user.is_authenticated():
         try:
             bbuser = PhpbbUser.objects.get(username=request.user.username)
-            if bbuser.user_regdate() > REGISTERED_LIMIT:
+            if bbuser.user_regdate() >= \
+                    datetime.datetime.strptime(settings.EFVOTE_REG_LIMIT):
                 return direct_to_template(request, 'message.html', {
                         'title': 'Tyvärr...',
                         'message': 'Endast medlemmar registrerade före ' + \
-                            '%s är tillåtna att rösta i tävlingen.' \
-                            % REGISTERED_LIMIT.date().isoformat()})
+                            'tävlingens tillkännagivande (%s) ' + \
+                            'är tillåtna att rösta i tävlingen.' \
+                            % settings.EFVOTE_REG_LIMIT})
         except PhpbbUser.DoesNotExist:
             # Authenticated with unknown backend
             pass
