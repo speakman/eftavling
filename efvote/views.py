@@ -19,11 +19,9 @@ def vote(request):
         if 'votecode' in request.POST:
             request.session.clear()
             votecode = request.POST['votecode']
-            try:
-                v = Voting.objects.get(hash=votecode)
-                voted = [n.entry for n in v.vote_set.order_by('position')]
+            if Voting.objects.filter(hash=votecode).count() == 1:
                 request.session['votecode'] = votecode
-            except Voting.DoesNotExist:
+            else:
                 return direct_to_template(request, 'message.html', {
                         'title': "Okänd röstningskod",
                         'message': "Den angivna röstningskoden kunde " + \
@@ -45,6 +43,10 @@ def vote(request):
             # Everything looks ok, let's continue
             request.session['votes'] = '&'.join([str(n.id) for n in votes])
             return redirect_to(request, reverse('confirm'))
+
+    if 'votecode' in request.session:
+        v = Voting.objects.get(hash=request.session['votecode'])
+        voted = [n.entry for n in v.vote_set.order_by('position')]
 
     assert len(voted) == 3 or request.user.is_authenticated()
 
