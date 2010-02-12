@@ -15,6 +15,9 @@ import logging
 def vote(request):
     voted = []
 
+    if request.user.is_authenticated() and 'votecode' in request.session:
+        del request.session['votecode']
+
     if request.method == 'POST':
         if 'votecode' in request.POST:
             request.session.clear()
