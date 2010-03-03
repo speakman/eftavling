@@ -10,6 +10,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
+    url(r'^results/$', 'eftavling.efvote.views.results', name='results'),
 )
 
 if settings.DEBUG:
@@ -46,6 +47,5 @@ else:
             {'template_name': 'login.html'}, name='login'),
         url(r'^vote/$', 'eftavling.efvote.views.vote', name='vote'),
         url(r'^confirm/$', 'eftavling.efvote.views.confirm', name='confirm'),
-        url(r'^results/$', 'eftavling.efvote.views.results', name='stats'),
     )
 
