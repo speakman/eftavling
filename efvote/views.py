@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse
 from django.conf import settings
+from django.http import HttpResponse, HttpResponseForbidden
 from models import Entry, Voter, Vote, Voting
 from django_phpbb.models import PhpbbUser
 from random import shuffle
@@ -129,3 +130,15 @@ def confirm(request):
     assert len(votes) == 3
     voteobjects = [Entry.objects.get(id=n) for n in votes]
     return direct_to_template(request, 'confirm.html', {'votes': voteobjects})
+
+@login_required
+def results(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden("Fårbiddän!")
+
+    response = HttpResponse(mimetype='text/plain')
+    
+    for voting in Voting.objects.all():
+        response.write(' '.join([str(n.entry_id) for n in voting.vote_set.order_by('position')]) + '\n')
+    
+    return response

@@ -46,5 +46,6 @@ else:
             {'template_name': 'login.html'}, name='login'),
         url(r'^vote/$', 'eftavling.efvote.views.vote', name='vote'),
         url(r'^confirm/$', 'eftavling.efvote.views.confirm', name='confirm'),
+        url(r'^results/$', 'eftavling.efvote.views.results', name='stats'),
     )
 
